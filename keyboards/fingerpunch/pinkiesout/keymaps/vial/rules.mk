@@ -1,6 +1,6 @@
 VIA_ENABLE = yes
 VIAL_ENABLE = yes
-#VIAL_INSECURE = yes
+VIAL_INSECURE = yes
 VIAL_ENCODERS_ENABLE = no
 #VIALRGB_ENABLE = yes # this should be set in the feature specific rules.mk files
 LTO_ENABLE = yes
