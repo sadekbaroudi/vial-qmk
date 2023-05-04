@@ -45,4 +45,4 @@
         { R16, R17, R18, ___, ___ }  \
     }
 
-#include "keyboards/fingerpunch/fp.h"
+#include "keyboards/fingerpunch/src/fp.h"

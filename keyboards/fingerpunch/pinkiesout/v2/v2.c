@@ -37,15 +37,15 @@ led_config_t g_led_config = { {
     {189,12},    {174,12},     {160,16},     {146,20},     {132,24},     {129,14},      {143,10},
     {157,5},     {171,1},      {186,2},      {201,1},      {215,0}
 }, {
-    1, 4, 4, 4, 4, 4, 1,
-    1, 4, 4, 4, 4, 4, 1,
-    1, 4, 4, 4, 4, 4, 1,
-    1, 4, 4, 4, 4, 4, 1,
-    1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1,
-    1, 4, 4, 4, 4, 4, 1,
-    1, 4, 4, 4, 4, 4, 1,
-    1, 4, 4, 4, 4, 4, 1,
-    1, 4, 4, 4, 4, 4, 1
+    1, 4,  4,  4,  4,  4,  1,   // left half - row 1 - left to right
+    1, 4,  4,  4,  4,  4,  1,   // left half - row 2 - right to left
+    1, 12, 12, 12, 12, 4,  1,   // left half - row 3 - left to right
+    1, 4,  4,  4,  4,  4,  1,   // left half - row 4 - right to left
+    1, 1,  1,  9,  1,           // left thumbs - left to right
+    1, 9,  1,  1,  1,           // right thumbs - left to right
+    1, 4,  4,  4,  4,  4,  1,   // right half - row 4 - right to left
+    1, 4,  12, 12, 12, 12, 1,   // right half - row 3 - left to right
+    1, 4,  4,  4,  4,  4,  1,   // right half - row 2 - right to left
+    1, 4,  4,  4,  4,  4,  1    // right half - row 1 - left to right
 } };
 #endif

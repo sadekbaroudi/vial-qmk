@@ -25,4 +25,4 @@
 #    include "v3.h"
 #endif
 
-#include "keyboards/fingerpunch/fp.h"
+#include "keyboards/fingerpunch/src/fp.h"

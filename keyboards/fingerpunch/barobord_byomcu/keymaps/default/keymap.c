@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] =  LAYOUT_barobord_byomcu(
   RGB_TOG, RGB_RMOD, RGB_MOD, _______, TO(_QWERTY),       KC_F1,   KC_F2,   KC_F3,   KC_F4,    KC_F5,
   RGB_SPI, RGB_HUI,  RGB_SAI, RGB_VAI, TO(_COLEMAK),      KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,
-  RGB_SPD, RGB_HUD,  RGB_SAD, RGB_VAD, _______,           KC_F11,  KC_F12,  _______, _______,  RESET,
+  RGB_SPD, RGB_HUD,  RGB_SAD, RGB_VAD, _______,           KC_F11,  KC_F12,  _______, _______,  QK_BOOT,
   _______, _______,  _______, _______, _______,           _______, _______, _______, _______, _______,
                                        _______,           _______
 )
@@ -184,7 +184,7 @@ void keyboard_post_init_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case KC_CAPSLOCK:
+        case KC_CAPS_LOCK:
             if (record->event.pressed) {
                 if (is_caps_lock_on) {
                     is_caps_lock_on = false;
@@ -199,41 +199,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     return true;
 }
-
-#ifdef ENCODER_ENABLE
-bool encoder_update_user(uint8_t index, bool clockwise) {
-    // default behavior if undefined
-    if (index == 0) {
-        // Conditional to reverse the direction of encoder number 1
-        // The reason I have this is that for some of my boards, it supports two different types of encoders, and they may differ in direction
-        #ifdef ENCODERS_A_REVERSE
-        if (!clockwise) {
-        #else
-        if (clockwise) {
-        #endif
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-    }
-    else if (index == 1) {
-      // Conditional to reverse the direction of encoder number 1
-      // The reason I have this is that for some of my boards, it supports two different types of encoders, and they may differ in direction
-      #ifdef ENCODERS_B_REVERSE
-      if (!clockwise) {
-      #else
-      if (clockwise) {
-      #endif
-        tap_code16(C(KC_RGHT));
-      }
-      else{
-        tap_code16(C(KC_LEFT));
-      }
-    }
-
-    return true;
-}
-#endif
 
 #ifdef OLED_ENABLE
 

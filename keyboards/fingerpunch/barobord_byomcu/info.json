@@ -1,7 +1,13 @@
 {
+    "manufacturer": "sadekbaroudi",
     "keyboard_name": "barobord_byomcu",
     "url": "https://github.com/sadekbaroudi/barobord",
     "maintainer": "Sadek Baroudi <sadekbaroudi@gmail.com>",
+    "usb": {
+        "vid": "0xFEFE",
+        "pid": "0x5851",
+        "device_version": "1.0.0"
+    },
     "layouts": {
         "LAYOUT_barobord_byomcu": {
             "layout": [

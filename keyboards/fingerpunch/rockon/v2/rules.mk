@@ -42,6 +42,9 @@ ENCODER_ENABLE = no
 OLED_ENABLE = no
 # EXTRAFLAGS     += -flto     # macros disabled, if you need the extra space
 
+HAPTIC_ENABLE ?= no
+HAPTIC_DRIVER = DRV2605L
+
 ifeq ($(strip $(CIRQUE_ENABLE)), yes)
    MOUSEKEY_ENABLE := yes  # not required, but enabling for mouse button keys
    POINTING_DEVICE_ENABLE := yes

@@ -1,0 +1,11 @@
+{
+    "manufacturer": "sadekbaroudi",
+    "keyboard_name": "ffkb byomcu",
+    "url": "https://fingerpunch.xyz/product/faux-fox-keyboard/",
+    "maintainer": "Sadek Baroudi <sadekbaroudi@gmail.com>",
+    "usb": {
+        "vid": "0xFEFE",
+        "pid": "0xFFBB",
+        "device_version": "1.0.0"
+    }
+}

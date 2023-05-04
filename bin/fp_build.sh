@@ -29,17 +29,44 @@ Help()
 
 get_valid_keyboards() {
 	valid_keyboards=""
+
 	directories=$(find ${1}/* -maxdepth 0 -type d)
 	echo "${directories}" | while read line; do
+		# first we do a basic test to see if fp_build.json is in the keyboard root directory
 		if [[ -e "${line}/fp_build.json" ]]; then
 		    echo -n "${line} "
 		fi
+
+		# check for all the supported versions of the keyboard in the keyboard root directory
 		for i in {1..9}
 		do
 			if [[ -e "${line}/v${i}/fp_build.json" ]]; then
 			    echo -n "${line}/v${i} "
 			fi
 		done
+
+		# if we have a second parameter, then we don't want to recurse again
+		if [ "$#" -lt 2 ]; then
+			# now check for byomcu version, repeating the logic above
+			if [[ -e "${line}/byomcu" ]]; then
+				echo $(get_valid_keyboards "${line}/byomcu" "false")
+			fi
+
+			# now check for atmega version
+			if [[ -e "${line}/atmega" ]]; then
+				echo $(get_valid_keyboards "${line}/atmega" "false")
+			fi
+
+			# now check for rp2040 version
+			if [[ -e "${line}/rp" ]]; then
+				echo $(get_valid_keyboards "${line}/rp" "false")
+			fi
+
+			# now check for stm version
+			if [[ -e "${line}/stm" ]]; then
+				echo $(get_valid_keyboards "${line}/stm" "false")
+			fi
+		fi
 	done
 }
 
@@ -229,14 +256,22 @@ rename_file_from_build_string() {
 
     if test -f "${hex_source_file}"; then
         echo "${0}: Renaming file '${hex_source_file}' to '${hex_target_file}'"
-        mv "${hex_source_file}" "${hex_target_file}"
+		if [ "${hex_source_file}" = "${hex_target_file}" ]; then
+			echo "${0}: Skipping rename, since the file is already named appropriately"
+		else
+        	mv "${hex_source_file}" "${hex_target_file}"
+		fi
     else
         echo "${0}: Could not find hex source file ${hex_source_file} to rename."
     fi
 
     if test -f "${uf2_source_file}"; then
         echo "${0}: Renaming file '${uf2_source_file}' to '${uf2_target_file}'"
-        mv "${uf2_source_file}" "${uf2_target_file}"
+		if [ "${uf2_source_file}" = "${uf2_target_file}" ]; then
+			echo "${0}: Skipping rename, since the file is already named appropriately"
+		else
+        	mv "${uf2_source_file}" "${uf2_target_file}"
+		fi
     else
         echo "${0}: Could not find uf2 source file ${uf2_source_file} to rename."
     fi

@@ -119,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] =  LAYOUT_fflx(
   _______, RGB_TOG, RGB_RMOD, RGB_MOD, _______, TO(_QWERTY),       KC_F1,   KC_F2,   KC_F3,   KC_F4,    KC_F5,  _______,
   _______, RGB_SPI, RGB_HUI,  RGB_SAI, RGB_VAI, TO(_COLEMAK),      KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10, _______,
-  _______, RGB_SPD, RGB_HUD,  RGB_SAD, RGB_VAD, _______,           KC_F11,  KC_F12,  _______, _______,  RESET,  _______,
+  _______, RGB_SPD, RGB_HUD,  RGB_SAD, RGB_VAD, _______,           KC_F11,  KC_F12,  _______, _______,  QK_BOOT,  _______,
                      _______, _______, _______, _______,           _______, _______, _______, _______
 ),
 
@@ -147,50 +147,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
-
-#ifdef ENCODER_ENABLE
-
-bool encoder_update_user(uint8_t index, bool clockwise) {
-    // default behavior if undefined
-    if (index == 0) {
-        // Conditional to reverse the direction of encoder number 1
-        // The reason I have this is that for some of my boards, it supports two different types of encoders, and they may differ in direction
-        #ifdef ENCODERS_A_REVERSE
-        if (!clockwise) {
-        #else
-        if (clockwise) {
-        #endif
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-    }
-    else if (index == 1) {
-      // Conditional to reverse the direction of encoder number 1
-      // The reason I have this is that for some of my boards, it supports two different types of encoders, and they may differ in direction
-      #ifdef ENCODERS_B_REVERSE
-      if (!clockwise) {
-      #else
-      if (clockwise) {
-      #endif
-        tap_code16(C(KC_RGHT));
-      }
-      else{
-        tap_code16(C(KC_LEFT));
-      }
-    }
-    else if (index == 2) {
-      #ifdef ENCODERS_C_REVERSE
-      if (!clockwise) {
-      #else
-      if (clockwise) {
-      #endif
-        press_super_tab(true);
-      } else {
-        press_super_tab(false);
-      }
-    }
-
-    return true;
-}
-#endif

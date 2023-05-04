@@ -1,0 +1,11 @@
+{
+    "manufacturer": "sadekbaroudi",
+    "keyboard_name": "rock on bp",
+    "url": "https://fingerpunch.xyz/product/rock-on-bpe/",
+    "maintainer": "Sadek Baroudi <sadekbaroudi@gmail.com>",
+    "usb": {
+        "vid": "0xFEFE",
+        "pid": "0x12B8",
+        "device_version": "1.0.0"
+    }
+}

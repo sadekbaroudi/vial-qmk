@@ -39,7 +39,7 @@ ENCODER_ENABLE = no
 # EXTRAFLAGS     += -flto     # macros disabled, if you need the extra space
 MOUSEKEY_ENABLE = no
 
-SRC += keyboards/fingerpunch/fp_matrix_74hc595_spi.c
+SRC += keyboards/fingerpunch/src/fp_matrix_74hc595_spi.c
 QUANTUM_LIB_SRC += spi_master.c
 CUSTOM_MATRIX = lite
 

@@ -32,4 +32,4 @@
     { K3B,   K32,   K39,   K34, K35, K36, K37, K38 } \
 }
 
-#include "keyboards/fingerpunch/fp.h"
+#include "keyboards/fingerpunch/src/fp.h"

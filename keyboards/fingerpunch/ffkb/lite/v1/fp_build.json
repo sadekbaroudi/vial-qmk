@@ -1,0 +1,7 @@
+[
+    {
+        "type" : "single",
+        "name" : "FP_INDICATOR_LED_ENABLE",
+        "user_input": "Do you have indicator LEDs?"
+    }
+]

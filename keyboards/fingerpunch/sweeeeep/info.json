@@ -1,0 +1,11 @@
+{
+    "manufacturer": "sadekbaroudi",
+    "keyboard_name": "sweep36 sweeeeep",
+    "url": "https://github.com/sadekbaroudi/sweep36/",
+    "maintainer": "Sadek Baroudi <sadekbaroudi@gmail.com>",
+    "usb": {
+        "vid": "0xFEFE",
+        "pid": "0x5111",
+        "device_version": "1.0.0"
+    }
+}

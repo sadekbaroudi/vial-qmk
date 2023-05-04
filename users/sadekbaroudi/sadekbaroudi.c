@@ -1,15 +1,5 @@
 #include "sadekbaroudi.h"
 
-#ifdef PIMORONI_TRACKBALL_ENABLE
-#include "drivers/sensors/pimoroni_trackball.h"
-#include "pointing_device.h"
-#include "color.h"
-#endif
-
-#ifdef POINTING_DEVICE_ENABLE
-#include "pointing_stuff.h"
-#endif
-
 userspace_config_t userspace_config;
 
 // Leader key combos - TODO move into another file?
@@ -103,9 +93,6 @@ __attribute__((weak)) void keyboard_pre_init_keymap(void) {}
 void keyboard_pre_init_user(void) {
     userspace_config.raw = eeconfig_read_user();
 
-    // hack for a weird issue where userspace_config.val gets set to 0 on keyboard restart
-    userspace_config.val = 255;
-
     keyboard_pre_init_keymap();
 }
 // Add reconfigurable functions here, for keymap customization
@@ -123,18 +110,6 @@ void matrix_init_user(void) {
 __attribute__((weak)) void keyboard_post_init_keymap(void) {}
 
 void keyboard_post_init_user(void) {
-    #if defined(PIMORONI_TRACKBALL_ENABLE) && !defined(USERSPACE_RGBLIGHT_ENABLE)
-    pimoroni_trackball_set_rgbw(RGB_BLUE, 0x00);
-    #endif
-#if defined(USERSPACE_RGBLIGHT_ENABLE)
-    keyboard_post_init_rgb_light();
-#endif
-// #if defined(RGB_MATRIX_ENABLE)
-//     keyboard_post_init_rgb_matrix();
-// #endif
-// #if defined(POINTING_DEVICE_ENABLE) && defined(POINTING_DEVICE_COMBINED)
-//     pointing_device_set_cpi_combined_defaults();
-// #endif
     keyboard_post_init_keymap();
 }
 
@@ -143,15 +118,6 @@ __attribute__((weak)) void shutdown_keymap(void) {}
 void rgb_matrix_update_pwm_buffers(void);
 
 void shutdown_user(void) {
-#ifdef USERSPACE_RGBLIGHT_ENABLE
-    USERSPACE_RGBLIGHT_ENABLE_noeeprom();
-    rgblight_mode_noeeprom(1);
-    rgblight_setrgb_red();
-#endif
-// #ifdef RGB_MATRIX_ENABLE
-//     rgb_matrix_set_color_all(0xFF, 0x00, 0x00);
-//     rgb_matrix_update_pwm_buffers();
-// #endif
     shutdown_keymap();
 }
 
@@ -174,14 +140,6 @@ void matrix_scan_user(void) {
         startup_user();
     }
 
-#if defined(USERSPACE_RGBLIGHT_ENABLE)
-    matrix_scan_rgb_light();
-#endif  // USERSPACE_RGBLIGHT_ENABLE
-
-// #if defined(RGB_MATRIX_ENABLE)
-//     matrix_scan_rgb_matrix();
-// #endif
-
 #if defined(LEADER_ENABLE)
     matrix_scan_leader_key();
 #endif
@@ -194,22 +152,11 @@ __attribute__((weak)) layer_state_t layer_state_set_keymap(layer_state_t state) 
 // on layer change, no matter where the change was initiated
 // Then runs keymap's layer change check
 layer_state_t layer_state_set_user(layer_state_t state) {
-#if defined(USERSPACE_RGBLIGHT_ENABLE)
-    state = layer_state_set_rgb_light(state);
-#endif  // USERSPACE_RGBLIGHT_ENABLE
-#if defined(HAPTIC_ENABLE)
-    state = layer_state_set_haptic(state);
-#endif  // HAPTIC_ENABLE
-#if defined(POINTING_DEVICE_ENABLE)
-// all handled in keyboards/fingerpunch/fp_pointing.c now
-//    state = layer_state_set_pointing(state);
-#endif  // HAPTIC_ENABLE
     return layer_state_set_keymap(state);
 }
 
 __attribute__((weak)) layer_state_t default_layer_state_set_keymap(layer_state_t state) { return state; }
 
-// Runs state check and changes underglow color and animation
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     state = default_layer_state_set_keymap(state);
     return state;
@@ -226,25 +173,9 @@ __attribute__((weak)) void eeconfig_init_keymap(void) {}
 
 void eeconfig_init_user(void) {
     userspace_config.raw              = 0;
-    userspace_config.rgb_base_layer_override = false;
-    userspace_config.rgb_layer_change = true;
-    #ifdef USERSPACE_RGBLIGHT_ENABLE
-    userspace_config.mode = RGBLIGHT_MODE_STATIC_LIGHT;
-    #endif
-    userspace_config.hue = 167; // BLUE
-    userspace_config.sat = 255;
-    userspace_config.val = 255;
-    userspace_config.speed = 1;
     eeconfig_update_user(userspace_config.raw);
     eeconfig_init_keymap();
     keyboard_init();
-}
-
-bool hasAllBitsInMask(uint8_t value, uint8_t mask) {
-    value &= 0xF;
-    mask &= 0xF;
-
-    return (value & mask) == mask;
 }
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {

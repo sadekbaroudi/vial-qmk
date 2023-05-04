@@ -1,0 +1,11 @@
+{
+    "manufacturer": "sadekbaroudi",
+    "keyboard_name": "ffkb rp2040",
+    "url": "https://fingerpunch.xyz/product/faux-fox-keyboard-rp2040-v3/",
+    "maintainer": "Sadek Baroudi <sadekbaroudi@gmail.com>",
+    "usb": {
+        "vid": "0xFE2B",
+        "pid": "0xFFBB",
+        "device_version": "3.0.0"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "manufacturer": "sadekbaroudi",
+    "keyboard_name": "fflx",
+    "url": "https://fingerpunch.xyz/product/faux-fox-lx/",
+    "maintainer": "Sadek Baroudi <sadekbaroudi@gmail.com>",
+    "usb": {
+        "vid": "0xFEFE",
+        "pid": "0xFF78",
+        "device_version": "1.0.0"
+    }
+}

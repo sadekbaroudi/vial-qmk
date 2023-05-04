@@ -1,0 +1,11 @@
+{
+    "keyboard_name": "stenographobe",
+    "manufacturer": "sadekbaroudi",
+    "url": "https://github.com/sadekbaroudi/stenographobe",
+    "maintainer": "sadekbaroudi",
+    "usb": {
+      "vid": "0xFEFE",
+      "pid": "0x5737",
+      "device_version": "1.0.0"
+    }
+}

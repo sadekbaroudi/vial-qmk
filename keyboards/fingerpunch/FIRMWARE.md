@@ -137,7 +137,7 @@ git fetch fingerpunch
 
 # Checkout the master branch as a branch that tracks your keyboard. Let's use ffkb in this example
 git checkout -b ffkb fingerpunch/master
-git submodule update
+git submodule update --init --recursive
 
 # add your keymap, code, etc into keyboards/fingerpunch/ffkb_byomcu/v3/keymaps/{your_keymap_dir}
 

@@ -17,8 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define DEVICE_VER      0x0002
-
 /* key matrix size */
 /* Rows are doubled up */
 #define MATRIX_ROWS 8
@@ -46,6 +44,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   #define POINTING_DEVICE_TASK_THROTTLE_MS 5
   #define I2C1_CLOCK_SPEED  400000
   #define I2C1_DUTY_CYCLE FAST_DUTY_CYCLE_2
+#endif
+
+#ifdef HAPTIC_ENABLE
+    #define FB_ERM_LRA 1
+    #define FB_BRAKEFACTOR 3 // For 1x:0, 2x:1, 3x:2, 4x:3, 6x:4, 8x:5, 16x:6, Disable Braking:7
+    #define FB_LOOPGAIN 1 // For  Low:0, Medium:1, High:2, Very High:3
+    #define RATED_VOLTAGE 2
+    #define V_PEAK 2.8
+    #define V_RMS 2.0
+    #define F_LRA 150 // resonance freq
+    #define DRV_GREETING  alert_750ms
+    #define FP_HAPTIC_MOUSE_BUTTONS
+    #define FP_HAPTIC_CUT_COPY_PASTE
+    #define FP_HAPTIC_SAVE
 #endif
 
 // BEGIN PWM driver: uncomment if using STeMcell as it's a better led driver

@@ -39,7 +39,7 @@
     { K11,   K12,    K13,   K14,   K15, K16,   K17, K18, K19 }, \
     { K21,   K22,    K23,   K24,   K25, K26,   K27, K28, K29 }, \
     { K31,   K32,    K33,   K34,   K35, K36,   K37, K38, K39 }, \
-    { KC_NO, KC_NO,  KC_NO, K36,   K35, K10,   K20, K30, K40 }, \
+    { KC_NO, KC_NO,  KC_NO, K51,   K50, K10,   K20, K30, K40 }, \
 }
 
-#include "keyboards/fingerpunch/fp.h"
+#include "keyboards/fingerpunch/src/fp.h"

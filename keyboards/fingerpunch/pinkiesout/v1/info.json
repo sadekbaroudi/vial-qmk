@@ -1,0 +1,11 @@
+{
+    "manufacturer": "sadekbaroudi",
+    "keyboard_name": "pinkies out",
+    "url": "https://fingerpunch.xyz/product/pinkies-out/",
+    "maintainer": "Sadek Baroudi <sadekbaroudi@gmail.com>",
+    "usb": {
+        "vid": "0xFEFE",
+        "pid": "0x6011",
+        "device_version": "1.0.0"
+    }
+}

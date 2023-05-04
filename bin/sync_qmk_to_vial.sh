@@ -11,10 +11,13 @@ rm -rf keyboards/fingerpunch/bigbarobord/
 rm -rf keyboards/fingerpunch/euclid36/
 rm -rf keyboards/fingerpunch/euclid36proto/
 rm -rf keyboards/fingerpunch/ffkb_byomcu/v3/kle-via.json
+rm -rf keyboards/fingerpunch/fpm101/
 rm -rf keyboards/fingerpunch/halfdash/
 rm -rf keyboards/fingerpunch/handwired/
 rm -rf keyboards/fingerpunch/luakeeb/
 rm -rf keyboards/fingerpunch/osprette/
 rm -rf keyboards/fingerpunch/stemcell_jumper_tester/
+rm -rf keyboards/fingerpunch/stenogaraphobe/
+rm -rf keyboards/fingerpunch/tenbit/
 rm -rf keyboards/fingerpunch/ximi/
 rm -rf keyboards/fingerpunch/personal/

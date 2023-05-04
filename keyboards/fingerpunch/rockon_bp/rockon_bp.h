@@ -46,4 +46,4 @@
     { K71, K72, K73, K99, ___, K76, K98, K78, K79 } \
 }
 
-#include "keyboards/fingerpunch/fp.h"
+#include "keyboards/fingerpunch/src/fp.h"

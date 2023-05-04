@@ -36,12 +36,12 @@
               K33, K34, K35, K36, K37, K38 \
   ) \
   LAYOUT_wrapper( \
-    KC_ESC,    KC_1,           KC_2,           KC_3,           KC_4,                KC_5,                   _______,                                                    TO(_GAME),         KC_6,                  KC_7,               KC_8,             KC_9,           KC_0,            KC_BSPC, \
-    KC_TAB,    K01,            K02,            K03,            LT(_FUNCTION, K04),  K05,                    FP_SCROLL_TOG,                                              TO(_NAVIGATION),    K06,                   LT(_FUNCTION, K07), K08,              K09,            K0A,             KC_BSLS, \
-    KC_CAPS,   LCTL_T(K11),    LGUI_T(K12),    LALT_T(K13),    LSFT_T(K14),         K15,                    KC_MS_BTN1,                                                 TO(_ALPHA),         LT(_MOUSE, K16),       RSFT_T(K17),        RALT_T(K18),      RGUI_T(K19),    RCTL_T(K1A),     KC_QUOT, \
-    KC_LSFT,   K21,            K22,            K23,            K24,                 K25,                    FP_SNIPE_TOG,                                               FP_SUPER_TAB,       K26,                   K27,                K28,              K29,            K2A,             KC_ENT, \
-               KC_MUTE,        KC_LCTL,        KC_LGUI,        K33,                 LT(_NAVIGATION,K34),    LT(_FUNCTION,K35),   KC_MS_BTN3, KC_MS_BTN1, KC_MS_BTN2,    LT(_MEDIA,K36),     LT(_SYMBOLS,K37),      K38,                KC_RGUI,          KC_RCTL,        KC_MUTE, \
-                                                                                                                                               KC_MUTE \
+    KC_ESC,      M_KI_R_ANGLE,   M_KI_R_FREE,    KC_3,           KC_4,                KC_5,                   _______,                                                    TO(_GAME),          KC_6,                  KC_7,               KC_8,             KC_9,           KC_0,            KC_BSPC, \
+    M_KI_SEL_TR, K01,            K02,            K03,            LT(_FUNCTION, K04),  K05,                    FP_SCROLL_TOG,                                              TO(_NAVIGATION),    K06,                   LT(_FUNCTION, K07), K08,              K09,            K0A,             KC_BSLS, \
+    M_KI_MV,     LCTL_T(K11),    LGUI_T(K12),    LALT_T(K13),    LSFT_T(K14),         K15,                    KC_MS_BTN1,                                                 TO(_ALPHA),         LT(_MOUSE, K16),       RSFT_T(K17),        RALT_T(K18),      RGUI_T(K19),    RCTL_T(K1A),     KC_QUOT, \
+    M_KI_MVREL,  K21,            K22,            K23,            K24,                 K25,                    FP_SNIPE_TOG,                                               FP_SUPER_TAB,       K26,                   K27,                K28,              K29,            K2A,             KC_ENT, \
+                 KC_MUTE,        KC_LCTL,        KC_LGUI,        K33,                 LT(_NAVIGATION,K34),    LT(_FUNCTION,K35),   KC_MS_BTN3, KC_MS_BTN1, KC_MS_BTN2,    LT(_MEDIA,K36),     LT(_SYMBOLS,K37),      K38,                KC_RGUI,          KC_RCTL,        KC_MUTE, \
+                                                                                                                                                KC_MUTE \
     )
 
 /* Re-pass though to allow templates to be used */
