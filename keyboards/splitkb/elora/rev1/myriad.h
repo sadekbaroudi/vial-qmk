@@ -69,3 +69,9 @@ myriad_card_t detect_myriad(void);
 
 // RGB
 #define MYRIAD_RGB             GP15
+
+#ifdef RGBLIGHT_ENABLE
+#define RGB_BASE_MODE RGBLIGHT_MODE_STATIC_LIGHT
+#elif defined(RGB_MATRIX_ENABLE)
+#define RGB_BASE_MODE RGB_MATRIX_SOLID_COLOR
+#endif

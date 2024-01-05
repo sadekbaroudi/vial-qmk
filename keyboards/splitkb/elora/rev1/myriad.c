@@ -222,6 +222,8 @@ static void myr_joystick_init(void) {
     myr_joystick_timer = timer_read();
 }
 
+#ifdef RGBLIGHT_ENABLE
+// Only used for RGBLIGHT
 static uint8_t myriad_led_base(void) {
     // Counting is continuous, with left first.
     if (is_keyboard_left()) {
@@ -230,6 +232,7 @@ static uint8_t myriad_led_base(void) {
         return 6+8+6;
     }
 }
+#endif
 
 // Make sure any card present is ready for use
 static myriad_card_t myriad_card_init(void) {
@@ -241,6 +244,8 @@ static myriad_card_t myriad_card_init(void) {
     }
     initialized = true;
 
+    #ifdef RGBLIGHT_ENABLE
+    // Only used for RGBLIGHT
     // 6 onboard LEDs, 8 Myriad LEDs
     for (int i = 0; i < 8; i++) {
         rgblight_setrgb_at(RGB_BLACK, myriad_led_base() + i);
@@ -253,6 +258,7 @@ static myriad_card_t myriad_card_init(void) {
     // You'd think that we could now use `rgblight_setrgb_at` to individually set Myriad LEDs,
     // but for some reason that seems to reset `rgblight_set_effect_range`...
     // We'll leave that as a TODO for later.
+    #endif
 
     switch (card) {
         case SKB_SWITCHES:
@@ -277,7 +283,7 @@ void myriad_init(void) {
     // About the `wait_ms(1)` stuff:
     // If we try to write to RGB *immediately* after another write, the second one will get lost!
     rgblight_enable_noeeprom();
-    rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
+    rgblight_mode_noeeprom(RGB_BASE_MODE);
     wait_ms(1);
 
     // Turn the RGB off for a short while so the user can clearly see the Myriad status color flash,
