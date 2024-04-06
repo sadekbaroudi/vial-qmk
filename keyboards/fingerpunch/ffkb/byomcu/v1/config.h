@@ -47,6 +47,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENCODERS_PAD_B {B7, F1}
 #endif
 
+#define OLED_DISPLAY_128X64
+
 #define ENCODER_RESOLUTION 2
 
 #ifdef PIMORONI_TRACKBALL_ENABLE

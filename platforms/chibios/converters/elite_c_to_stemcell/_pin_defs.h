@@ -41,9 +41,10 @@
 #define F6 PAL_LINE(GPIOB, 1)
 #define F7 PAL_LINE(GPIOB, 0)
 
-#define B1 PAL_LINE(GPIOA, 5)
+// SWAPPED GPIOA, 7 and GPIO, 5 for stemcell v1.0.0
+#define B1 PAL_LINE(GPIOA, 7)
 #define B3 PAL_LINE(GPIOA, 6)
-#define B2 PAL_LINE(GPIOA, 7)
+#define B2 PAL_LINE(GPIOA, 5)
 #define B6 PAL_LINE(GPIOA, 4)
 
 // Bottom row
