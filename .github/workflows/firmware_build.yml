@@ -11,7 +11,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         repository: ${{ github.repository}}
         ref: ${{ github.ref }}
@@ -19,7 +19,7 @@ jobs:
       run: |
           content=$(bash bin/fp_build.sh -l | sed s~keyboards/fingerpunch/~~|  jq -Rsc '. / "\n" - [""]')
           content="{\"keyboard\":$content}"
-          echo "::set-output name=matrix::$content"
+          echo "matrix=$content" >> $GITHUB_OUTPUT
 
   Build:
     needs: gather-keyboards
@@ -30,7 +30,7 @@ jobs:
       matrix: ${{fromJson(needs.gather-keyboards.outputs.matrix)}}
     steps:
       - name: Checkout QMK
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.repository}}
           ref: ${{ github.ref }}
@@ -49,20 +49,33 @@ jobs:
             case "$line" in
               *${{ matrix.keyboard }}*)
                 echo "Building for ${line}"
-                make_command="bin/fp_build.sh -k ${line} -m vial -r"
+                make_command="bin/fp_build.sh -k ${line} -r"
                 echo "${make_command}"
                 $make_command
               ;;
             esac
           done
 
+      - name: Prepare keyboard name for Artifacts
+        id: prep_artifact_name
+        run: |
+          # Calculate a unique string which applies to the matrix entry
+          # that we can use to construct unique and valid artifact names.
+          # We achieve that by squashing runs of characters are invalid
+          # in artifact names, and also whitespace and dashes, into a
+          # single dash character.  The unique string will appear as
+          # the environment variable ARTIFACT_NAME in subsequent actions.
+          name="${{ matrix.keyboard }}"
+          # The option to enable + in sed regexps differs by OS so we avoid it
+          name=$(echo -n "$name" | sed -e 's/[ \t:\/\\"<>|*?]/_/g' -e 's/__*/_/g')
+          echo "KB_CLEAN_ARTIFACT_NAME=$name" >> $GITHUB_ENV
+
       - name: Archive firmware
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
-          name: vial_fingerpunch_${{ github.actor }}
+          name: qmk_fingerpunch_${{ env.KB_CLEAN_ARTIFACT_NAME }}
           path: |
             *.hex
             *.bin
             *.uf2
-
