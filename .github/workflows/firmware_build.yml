@@ -49,7 +49,7 @@ jobs:
             case "$line" in
               *${{ matrix.keyboard }}*)
                 echo "Building for ${line}"
-                make_command="bin/fp_build.sh -k ${line} -r"
+                make_command="bin/fp_build.sh -k ${line} -m vial -r"
                 echo "${make_command}"
                 $make_command
               ;;
