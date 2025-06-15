@@ -37,3 +37,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Used only if you have a weact st7735 display, set to unused pin
 #define VIK_ST7735_UNUSED_PIN GP15
 #define FP_QP_ROTATION QP_ROTATION_270
+
+#define POINTING_DEVICE_ROTATION_90
+#define I2C1_CLOCK_SPEED  400000
+#define I2C1_DUTY_CYCLE FAST_DUTY_CYCLE_2
+

@@ -16,4 +16,4 @@
 #endif
 
 // For via/vial only
-#define DYNAMIC_KEYMAP_LAYER_COUNT 4
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5

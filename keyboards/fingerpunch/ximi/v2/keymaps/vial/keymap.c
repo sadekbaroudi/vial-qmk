@@ -10,12 +10,14 @@ enum layer_names {
     _QWERTY,
     _LOWER,
     _RAISE,
-    _ADJUST
+    _ADJUST,
+    _NAVIGATE
 };
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define ADJUST MO(_ADJUST)
+#define NAVIGATE MO(_NAVIGATE)
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
@@ -23,6 +25,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_LOWER] =  { ENCODER_CCW_CW(RGB_HUD, RGB_HUI),           ENCODER_CCW_CW(RGB_SAD, RGB_SAI)  },
     [_RAISE] =  { ENCODER_CCW_CW(RGB_VAD, RGB_VAI),           ENCODER_CCW_CW(RGB_SPD, RGB_SPI)  },
     [_ADJUST] = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD),          ENCODER_CCW_CW(KC_RIGHT, KC_LEFT) },
+    [_NAVIGATE] = { ENCODER_CCW_CW(RGB_TOG, RGB_TOG),         ENCODER_CCW_CW(KC_RIGHT, KC_LEFT) }
 };
 #endif
 
@@ -120,6 +123,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                         `--------------------'    `--------------------.
  */
 [_ADJUST] =  LAYOUT_ximi(
+  _______,      RGB_TOG, RGB_RMOD, RGB_MOD, _______, _______,           KC_F1,   KC_F2,   KC_F3,   KC_F4,    KC_F5,   _______,
+  _______,      RGB_SPI, RGB_HUI,  RGB_SAI, RGB_VAI, _______,           KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  _______,
+  _______,      RGB_SPD, RGB_HUD,  RGB_SAD, RGB_VAD, _______,           KC_F11,  KC_F12,  _______, QK_RBT,   QK_BOOT, _______,
+                _______,           _______, _______, _______,           _______, _______, _______,          _______,
+                                   _______, _______, _______,           _______, _______, _______
+),
+
+[_NAVIGATE] =  LAYOUT_ximi(
   _______,      RGB_TOG, RGB_RMOD, RGB_MOD, _______, _______,           KC_F1,   KC_F2,   KC_F3,   KC_F4,    KC_F5,   _______,
   _______,      RGB_SPI, RGB_HUI,  RGB_SAI, RGB_VAI, _______,           KC_F6,   KC_F7,   KC_F8,   KC_F9,    KC_F10,  _______,
   _______,      RGB_SPD, RGB_HUD,  RGB_SAD, RGB_VAD, _______,           KC_F11,  KC_F12,  _______, QK_RBT,   QK_BOOT, _______,
