@@ -10,3 +10,5 @@ ifeq ($(strip $(RGB_MATRIX_ENABLE)), yes)
 endif
 LTO_ENABLE = yes
 QMK_SETTINGS = no
+AUTO_SHIFT_ENABLE = yes
+CAPS_WORD_ENABLE = yes

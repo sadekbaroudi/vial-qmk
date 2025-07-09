@@ -1,0 +1,2 @@
+#!/bin/bash
+make fingerpunch/ximi/v2:vial FP_CIRQUE_RIGHT_ONLY=yes FP_SPLIT_LEFT=yes ENCODER_ENABLE=yes AUDIO_ENABLE=yes HAPTIC_ENABLE=no QMK_ENABLE=no RGB_MATRIX_ENABLE=no RGBLIGHT_ENABLE=no ; qmk flash fingerpu*
