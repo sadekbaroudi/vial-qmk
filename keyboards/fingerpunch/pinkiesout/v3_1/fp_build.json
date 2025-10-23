@@ -1,0 +1,27 @@
+[
+    {
+        "type" : "single",
+        "name" : "CIRQUE_ENABLE",
+        "user_input": "Do you have a cirque?"
+    },
+    {
+        "type" : "one-of",
+        "names" : [ "RGBLIGHT_ENABLE", "RGB_MATRIX_ENABLE" ],
+        "user_input": "No RGB, RGB light, RGB matrix?"
+    },
+    {
+        "type" : "single",
+        "name" : "ENCODER_ENABLE",
+        "user_input": "Do you have one or more rotary encoders?"
+    },
+    {
+        "type" : "single",
+        "name" : "AUDIO_ENABLE",
+        "user_input": "Do you have an audio buzzer?"
+    },
+    {
+        "type" : "single",
+        "name" : "HAPTIC_ENABLE",
+        "user_input": "Do you have haptic feedback?"
+    }
+]
