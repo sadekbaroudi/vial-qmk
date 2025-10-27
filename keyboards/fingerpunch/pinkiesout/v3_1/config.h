@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SHIFTREG_MATRIX_COL_CS GP21
 #define SHIFTREG_DIVISOR 8
 #define MATRIX_ROW_PINS_SR \
-    { GP4, GP5, GP6, GP8, GP26, GP11, GP28, GP27, GP7 }
+    { GP4, GP5, GP6, GP8, GP24, GP11, GP0, GP10, GP7 }
 
 // SPI config for shift register
 #define SPI_DRIVER SPID0
@@ -43,8 +43,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VIK_I2C_DRIVER I2CD1
 #define VIK_I2C_SDA_PIN GP2
 #define VIK_I2C_SCL_PIN GP3
-#define VIK_GPIO_1 GP10
-#define VIK_GPIO_2 GP24
+#define VIK_GPIO_1 GP26
+#define VIK_GPIO_2 GP27
 #define VIK_WS2812_DI_PIN GP25
 
 /* COL2ROW, ROW2COL*/
