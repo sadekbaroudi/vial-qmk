@@ -18,7 +18,7 @@
 #include QMK_KEYBOARD_H
 
 // Uncomment to set up WPM
-//char wpm_as_str[8];
+// char wpm_as_str[8];
 
 /*
  * The `LAYOUT_pinkiesout_base` macro is a template to allow the use of identical
