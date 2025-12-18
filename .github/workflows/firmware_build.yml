@@ -24,7 +24,7 @@ jobs:
   Build:
     needs: gather-keyboards
     runs-on: ubuntu-latest
-    container: qmkfm/qmk_cli
+    container: ghcr.io/qmk/qmk_cli@sha256:16c4916e95b99bf88d27b15aec8db409ee17265d1710287fde248c6666508966
     strategy:
       fail-fast: false
       matrix: ${{fromJson(needs.gather-keyboards.outputs.matrix)}}
@@ -39,6 +39,8 @@ jobs:
       - name: Build firmware
         shell: bash
         run: |
+          git config --global --add safe.directory $(pwd)
+
           wget -q https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O jq
           chmod +x jq
           mv jq /usr/local/sbin/
