@@ -1,3 +1,7 @@
+# fingerpunch fork
+
+This is a fork of the vial-qmk repository to support fingerpunch keyboards.
+
 # Quantum Mechanical Keyboard Firmware
 
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
